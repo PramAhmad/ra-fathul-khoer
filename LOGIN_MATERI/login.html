@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Materi Pembelajaran</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="login-container">
+    <img src="assets/Logo_RA.png" alt="Login Banner" class="login-banner" />
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <p id="errorMsg" class="error-msg"></p>
+      <div class="form-buttons">
+        <button onclick="window.location.href='../LANDING_PAGE/index.html'" class="btn">Kembali</button>
+        <button type="submit" class="btn">Login</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document
+      .getElementById("loginForm")
+      .addEventListener("submit", function (e) {
+        e.preventDefault();
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        if (username === "admin" && password === "admin123") {
+          localStorage.setItem("loggedIn", "true");
+          window.location.href = "materi.html";
+        } else {
+          document.getElementById("errorMsg").textContent =
+            "Username atau password salah";
+        }
+      });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Materi Pembelajaran</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body onload="checkLogin()">
+  <nav>
+    <div class="nav-title">RA FATHUL KHOER</div>
+    <div class="nav-links">
+      <button onclick="logout()" class="btn-logout">Logout</button>
+    </div>
+  </nav>
+  
+
+  <main class="materi-wrapper">
+    <div class="semester">
+      <h2>Semester 1</h2>
+      <div class="materi-list">
+        <div class="materi-box" onclick="openPopup('assets/semester 1/Topik 1/Screenshot 2025-04-23 171330.png', 'assets/semester 1/Topik 1/Hallo, Aku Teman Baru.pptx')">Aku Hamba Allah</div>
+        <div class="materi-box" onclick="openPopup('assets/semester 1/Topik 2/Screenshot 2025-04-23 171641.png', 'assets/semester 1/Topik 2/Aku Cinta Indonesia.pptx')">Aku Cinta Indonesia</div>
+        <div class="materi-box" onclick="openPopup('assets/semester 1/Topik 3/Keluargaku (1).png', 'assets/semester 1/Topik 3/Keluargaku.pptx')">Lingkunganku Yang Nyaman</div>
+        <div class="materi-box" onclick="openPopup('assets/semester 1/Topik 4/Sehat dan Bergizi.png', 'assets/semester 1/Topik 4/Sehat Dan Bergizi.pptx')">Makanan dan Minuman Kesukaanku/ Imajinasi dan Kreativitasku</div>
+        <div class="materi-box" onclick="openPopup('assets/semester 1/Topik 5/Screenshot 2025-04-22 220325.png', 'assets/semester 1/Topik 5/Aku Suka Makan Ikan.pptx')">Binatang Ciptaan Allah</div>
+        <div class="materi-box" onclick="openPopup('assets/semester 1/Topik 6/Screenshot 2025-04-23 212340.png', 'assets/semester 1/Topik 6/Aku Ingin Jadi Pengusaha.pptx')">Cita-Citaku</div>
+      </div>      
+    </div>
+
+    <div class="semester">
+      <h2>Semester 2</h2>
+      <div class="materi-list">
+        <div class="materi-box" onclick="openPopup('assets/semeter 2/Topik 1/Screenshot 2025-04-23 081737.png', 'assets/semeter 2/Topik 1/Kendaraan Di kotaku.pptx')">Senangnya Berwisata</div>
+        <div class="materi-box" onclick="openPopup('assets/semeter 2/Topik 2/Screenshot 2025-04-23 222433.png', 'assets/semeter 2/Topik 2/Angkasa Yang Luas.pptx')">Indahnya Alam Ciptaan Allah</div>
+        <div class="materi-box" onclick="openPopup('assets/semeter 2/Topik 3/Screenshot 2025-05-10 080008.png', 'assets/semeter 2/Topik 3/Mampu Berpuasa.pptx')">Ramadhan Ceria / Kita Semua Bersaudara</div>
+        <div class="materi-box" onclick="openPopup('assets/semeter 2/Topik 4/Screenshot 2025-05-10 080339.png', 'assets/semeter 2/Topik 4/Aku Suka Minum Air Putih.pptx')">Air Api dan Udara Karunia Allah</div>
+        <div class="materi-box" onclick="openPopup('assets/semeter 2/Topik 5/Screenshot 2025-04-23 172110.png', 'LOGIN_MATERI/assets/semeter 2/Topik 5/ANIMASI RBPL SEMESTER 2 BAGIAN 5 -ASYIKNYA BERMAIN DIGITAL-.pptx')">Asyik nya Bermain Digital</div>
+        <div class="materi-box" onclick="openPopup('assets/materi6-preview.png', 'assets/materi6.pptx')">Persiapan Haflah Akhirussanahku</div>
+      </div>      
+    </div>
+  </main>
+
+  <!-- Popup Overlay -->
+<div class="popup-overlay" id="popup">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <img id="preview-image" src="" alt="Preview Materi" />
+      <a id="download-link" href="#" download>
+        <button class="download-btn">Download Materi</button>
+      </a>
+    </div>
+</div>  
+
+  <script>
+    function checkLogin() {
+      if (localStorage.getItem('loggedIn') !== 'true') {
+        window.location.href = 'login.html';
+      }
+    }
+
+    function logout() {
+      localStorage.removeItem('loggedIn');
+      window.location.href = 'login.html';
+    }
+
+    function openPopup(imageUrl, downloadUrl) {
+    document.getElementById('preview-image').src = imageUrl;
+    document.getElementById('download-link').href = downloadUrl;
+    document.getElementById('popup').style.display = 'flex';
+    }
+
+    function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
